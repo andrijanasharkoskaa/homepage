@@ -1,0 +1,75 @@
+body {
+  background: linear-gradient(120deg, #f5f7fa, #e4ecf7);
+}
+
+/* smooth animation on load */
+.resume {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* card hover effect */
+.resume__block {
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.resume__block:hover {
+  transform: scale(1.01);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* avatar animation */
+.contact-info__avatar {
+  transition: transform 0.4s ease;
+}
+
+.contact-info__avatar:hover {
+  transform: rotate(5deg) scale(1.05);
+}
+
+/* header animation */
+.contact-info__header {
+  animation: slideDown 1s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* skill hover highlight */
+.skills__text {
+  transition: 0.3s;
+}
+
+.skills__text:hover {
+  color: #ff9a00;
+  letter-spacing: 0.5px;
+}
+
+/* link hover */
+.contact-info__item {
+  transition: 0.3s;
+}
+
+.contact-info__item:hover {
+  color: #ff9a00;
+  transform: translateX(5px);
+}
