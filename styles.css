@@ -7,6 +7,187 @@
 }
 
 body {
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.resume {
+  max-width: 900px;
+  margin: 30px auto;
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* block spacing */
+.resume__block {
+  padding: 25px;
+  border-bottom: 1px solid #eee;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* =========================
+   HEADER SECTION
+.contact-info__header {
+  font-size: 32px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.contact-info__sub-header {
+  text-align: center;
+  color: var(--secondary);
+  margin-bottom: 20px;
+}
+
+/* contact layout */
+.contact_info_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* avatar */
+.contact-info__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.contact-info__avatar:hover {
+  transform: scale(1.05);
+}
+
+/* contact items */
+.contact-info__item {
+  display: block;
+  padding: 6px 0;
+  color: var(--secondary);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.contact-info__item:hover {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+/* =========================
+   INTRO
+.intro {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.intro_text {
+  color: var(--secondary);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* =========================
+   SKILLS
+.skills {
+  text-align: center;
+}
+
+.skills__header {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.skills__text {
+  color: var(--secondary);
+}
+
+/* =========================
+   EXPERIENCE
+.main-info {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.experiences,
+.additional-info {
+  flex: 1;
+}
+
+.experiences__header,
+.additional-info__education-header,
+.additional-info__languages-header {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+
+.experiences__company {
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+.experiences__company:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.experiences__company-header-name {
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+
+.experiences__company-project-responsibilities {
+  margin-left: 18px;
+  color: var(--secondary);
+}
+
+/* =========================
+   EDUCATION / LANGUAGES
+.additional-info__education-university,
+.additional-info__languages {
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* =========================
+   ANIMATION
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+@media (max-width: 768px) {
+  .contact_info_container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .main-info {
+    flex-direction: column;
+  }
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
 
