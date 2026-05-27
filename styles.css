@@ -50,6 +50,18 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 40px;
+
+.resume {
+  background: var(--card-bg);
+  border-radius: 28px;
+  padding: 50px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 10px 40px rgb(0 0 0 / 8%),
+    0 2px 10px rgb(108 99 255 / 8%);
+  animation: fade-in 0.9s ease;
+}
+
 }
 
 .fv {
@@ -59,7 +71,6 @@ body {
 
 /* =========================
    MAIN RESUME CARD
-========================= */
 
 .resume {
   background: var(--card-bg);
@@ -97,6 +108,25 @@ body {
   color: var(--primary-text-color);
   letter-spacing: 1px;
   margin-bottom: 10px;
+
+.contact-info__block {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-info__item {
+  text-decoration: none;
+  color: var(--secondary-text-color);
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.contact-info__item:hover {
+  color: var(--primary-color);
+  transform: translateX(4px);
+}
+
 }
 
 .contact-info__sub-header {
@@ -113,7 +143,6 @@ body {
 
 /* =========================
    CONTACTS
-========================= */
 
 .contact-info__block {
   display: flex;
@@ -266,6 +295,32 @@ body {
 .experiences__company:hover {
   transform: translateY(-5px);
   border-left: 6px solid var(--primary-color);
+
+.additional-info {
+  flex: 1 1 35%;
+  gap: 30px;
+}
+
+.additional-info__education,
+.additional-info__languages {
+  background: white;
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgb(0 0 0 / 5%);
+  transition: 0.3s ease;
+}
+
+.additional-info__education:hover,
+.additional-info__languages:hover {
+  transform: translateY(-4px);
+}
+
+.additional-info__education-university-name,
+.additional-info__languages-item {
+  color: var(--secondary-text-color);
+  margin-bottom: 10px;
+}
+
 }
 
 .experiences__company-header-durability,
@@ -294,7 +349,6 @@ body {
 
 /* =========================
    SIDEBAR INFO
-========================= */
 
 .additional-info {
   flex: 1 1 35%;
@@ -325,7 +379,6 @@ body {
 
 /* =========================
    BUTTONS / LINKS
-========================= */
 
 a {
   color: inherit;
