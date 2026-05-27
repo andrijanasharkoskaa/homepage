@@ -39,10 +39,7 @@ body {
 .container {
   width: 100%;
   max-width: 1100px;
-  margin: 0 auto;
-
-  /* BIG IMPROVEMENT: spacing between sections */
-  margin-bottom: 28px;
+  margin: 0 auto 28px;
 }
 
 /* =========================
@@ -79,22 +76,17 @@ body {
 }
 
 /* =========================
-   UNIVERSAL CARD SYSTEM (IMPORTANT FIX)
+   UNIVERSAL CARD STYLE
 ========================= */
 
-/* THIS FIXES EVERYTHING: consistency + spacing + hover */
-.resume__block,
+.resume-block,
 .funny-status,
 .funny-easter-egg,
-.experience-card,
-.intro-box,
-.sidebar-box,
-.experiences__company {
-  background: white;
+.experience-card {
+  background: rgb(255 255 255 / 100%);
   border-radius: 18px;
 
   padding: 24px;
-
   margin-bottom: 22px;
 
   box-shadow: 0 6px 18px rgb(0 0 0 / 6%);
@@ -104,14 +96,11 @@ body {
     box-shadow 0.25s ease;
 }
 
-/* hover effect for ALL sections */
-.resume__block:hover,
+/* hover (must come AFTER base rule) */
+.resume-block:hover,
 .funny-status:hover,
 .funny-easter-egg:hover,
-.experience-card:hover,
-.intro-box:hover,
-.sidebar-box:hover,
-.experiences__company:hover {
+.experience-card:hover {
   transform: translateY(-5px) scale(1.01);
   box-shadow: 0 12px 28px rgb(0 0 0 / 10%);
 }
@@ -136,7 +125,7 @@ body {
 }
 
 /* =========================
-   IMPORTANT FIX: CONTACT LAYOUT SPACING
+   CONTACT LAYOUT
 ========================= */
 
 .contact_info_container {
@@ -144,7 +133,6 @@ body {
   gap: 40px;
 }
 
-/* prevents avatar overlap issue */
 .contact-info__block {
   display: flex;
   flex-direction: column;
@@ -152,17 +140,13 @@ body {
   min-width: 180px;
 }
 
-/* =========================
-   CONTACT ITEMS
-========================= */
-
 .contact-info__item {
   color: var(--secondary-text-color);
   font-size: 15px;
 }
 
 /* =========================
-   AVATAR (FIXED ALIGNMENT)
+   AVATAR FIX (NO OVERLAP)
 ========================= */
 
 .contact-info__avatar {
@@ -171,7 +155,7 @@ body {
   border-radius: 22px;
   object-fit: cover;
 
-  border: 5px solid white;
+  border: 5px solid rgb(255 255 255 / 100%);
 
   box-shadow:
     0 10px 25px rgb(108 99 255 / 20%),
@@ -195,7 +179,7 @@ body {
 }
 
 /* =========================
-   SECTION TITLES
+   HEADERS
 ========================= */
 
 .skills__header,
@@ -219,18 +203,20 @@ body {
 }
 
 /* =========================
-   FUNNY BLOCK (IMPROVED VISUAL IMPACT)
+   FUNNY BLOCKS (IMPROVED)
 ========================= */
 
 .funny-status {
   border-left: 5px solid var(--primary-color);
+  position: relative;
 }
 
 .funny-easter-egg {
   border-left: 5px solid var(--secondary-color);
+  position: relative;
 }
 
-/* “wha-a-a-t” effect */
+/* decorative text */
 .funny-easter-egg::after {
   content: "🤯 wha-a-a-t ?!";
   position: absolute;
@@ -239,21 +225,7 @@ body {
   font-size: 12px;
   opacity: 0.25;
 }
-.funny-status,
-.funny-easter-egg {
-  background: white;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgb(0 0 0 / 10%);
-  font-size: 14px;
-  transition: 0.3s ease;
-}
 
-.funny-status:hover,
-.funny-easter-egg:hover {
-  transform: translateY(-3px);
-}
 /* =========================
    ANIMATION
 ========================= */
