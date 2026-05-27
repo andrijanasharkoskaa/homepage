@@ -1,75 +1,360 @@
+/* =========================
+   RESET & GLOBAL STYLES
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: linear-gradient(120deg, #f5f7fa, #e4ecf7);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.7;
+  background: linear-gradient(135deg, #f4f7fb, #eef3ff);
+  color: #1b1b1b;
+
+  --primary-text-color: #1d2433;
+  --secondary-text-color: #4f5b6b;
+  --light-text-color: #7f8897;
+  --primary-color: #6c63ff;
+  --secondary-color: #00b4d8;
+  --accent-color: #ff8c42;
+  --card-bg: rgb(255 255 255 / 92%);
+  --border-color: rgb(108 99 255 / 15%);
+
+  padding: 40px 20px;
 }
 
-/* smooth animation on load */
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* =========================
+   FLEX HELPERS
+========================= */
+
+.fh {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.fv {
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   MAIN RESUME CARD
+========================= */
+
 .resume {
-  animation: fadeIn 1s ease-in-out;
+  background: var(--card-bg);
+  border-radius: 28px;
+  padding: 50px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 10px 40px rgb(0 0 0 / 8%),
+    0 2px 10px rgb(108 99 255 / 8%);
+  animation: fade-in 0.9s ease;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* =========================
+   BLOCKS
+========================= */
 
-/* card hover effect */
 .resume__block {
-  transition: all 0.3s ease;
-  border-radius: 12px;
+  padding: 35px 0;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.resume__block:hover {
-  transform: scale(1.01);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+.resume__block:last-child {
+  border-bottom: none;
 }
 
-/* avatar animation */
-.contact-info__avatar {
-  transition: transform 0.4s ease;
-}
+/* =========================
+   HEADER
+========================= */
 
-.contact-info__avatar:hover {
-  transform: rotate(5deg) scale(1.05);
-}
-
-/* header animation */
 .contact-info__header {
-  animation: slideDown 1s ease;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--primary-text-color);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.contact-info__sub-header {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-bottom: 40px;
 }
 
-/* skill hover highlight */
-.skills__text {
-  transition: 0.3s;
+.contact-info__container {
+  align-items: center;
 }
 
-.skills__text:hover {
-  color: #ff9a00;
-  letter-spacing: 0.5px;
+/* =========================
+   CONTACTS
+========================= */
+
+.contact-info__block {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-/* link hover */
 .contact-info__item {
-  transition: 0.3s;
+  text-decoration: none;
+  color: var(--secondary-text-color);
+  font-size: 15px;
+  transition: 0.3s ease;
 }
 
 .contact-info__item:hover {
-  color: #ff9a00;
-  transform: translateX(5px);
+  color: var(--primary-color);
+  transform: translateX(4px);
+}
+
+/* =========================
+   AVATAR
+========================= */
+
+.contact-info__avatar {
+  width: 170px;
+  height: 170px;
+  border-radius: 24px;
+  object-fit: cover;
+  border: 5px solid white;
+  box-shadow:
+    0 10px 25px rgb(108 99 255 / 20%),
+    0 0 0 6px rgb(108 99 255 / 8%);
+  transition: 0.4s ease;
+}
+
+.contact-info__avatar:hover {
+  transform: rotate(1deg);
+  box-shadow:
+    0 14px 30px rgb(108 99 255 / 28%),
+    0 0 0 8px rgb(108 99 255 / 10%);
+}
+
+/* =========================
+   INTRO SECTION
+========================= */
+
+.intro {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgb(0 0 0 / 5%);
+  transition: 0.3s ease;
+}
+
+.intro:hover {
+  transform: translateY(-3px);
+}
+
+.intro-text {
+  color: var(--secondary-text-color);
+  font-size: 16px;
+  text-align: justify;
+}
+
+/* =========================
+   SECTION HEADERS
+========================= */
+
+.skills__header,
+.experiences__header,
+.additional-info__education-header,
+.additional-info__languages-header {
+  font-size: 26px;
+  color: var(--primary-text-color);
+  margin-bottom: 25px;
+}
+
+.skills__header::after,
+.experiences__header::after,
+.additional-info__education-header::after,
+.additional-info__languages-header::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills__text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.experiences {
+  flex: 1 1 65%;
+}
+
+.experiences__company {
+  background: white;
+  padding: 28px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 20px rgb(0 0 0 / 5%);
+  transition: 0.35s ease;
+}
+
+.experiences__company:hover {
+  transform: translateY(-5px);
+  border-left: 6px solid var(--primary-color);
+}
+
+.experiences__company-header-durability,
+.experiences__company-project-role,
+.additional-info__education-university-durability {
+  color: var(--light-text-color);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.experiences__company-header-name,
+.experiences__company-project-name,
+.additional-info__education-university-speciality {
+  color: var(--primary-text-color);
+  margin: 12px 0;
+}
+
+.experiences__company-project-responsibilities {
+  padding-left: 20px;
+  color: var(--secondary-text-color);
+}
+
+.experiences__company-project-responsibilities li {
+  margin-bottom: 10px;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.additional-info {
+  flex: 1 1 35%;
+  gap: 30px;
+}
+
+.additional-info__education,
+.additional-info__languages {
+  background: white;
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgb(0 0 0 / 5%);
+  transition: 0.3s ease;
+}
+
+.additional-info__education:hover,
+.additional-info__languages:hover {
+  transform: translateY(-4px);
+}
+
+.additional-info__education-university-name,
+.additional-info__languages-item {
+  color: var(--secondary-text-color);
+  margin-bottom: 10px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media screen and (max-width: 992px) {
+  .fh {
+    flex-direction: column;
+  }
+
+  .resume {
+    padding: 35px;
+  }
+
+  .contact-info__header {
+    font-size: 36px;
+  }
+
+  .contact-info__avatar {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  .resume {
+    padding: 25px;
+    border-radius: 20px;
+  }
+
+  .contact-info__header {
+    font-size: 30px;
+  }
+
+  .contact-info__sub-header {
+    font-size: 17px;
+  }
+
+  .skills__header,
+  .experiences__header,
+  .additional-info__education-header,
+  .additional-info__languages-header {
+    font-size: 22px;
+  }
+
+  .contact-info__avatar {
+    width: 130px;
+    height: 130px;
+  }
 }
