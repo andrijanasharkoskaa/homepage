@@ -1,0 +1,278 @@
+/* =========================
+   RESET & GLOBAL
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.7;
+
+  background: linear-gradient(135deg, #f4f7fb, #eef3ff);
+  color: #1b1b1b;
+
+  --primary-text-color: #1d2433;
+  --secondary-text-color: #4f5b6b;
+  --light-text-color: #7f8897;
+
+  --primary-color: #6c63ff;
+  --secondary-color: #00b4d8;
+
+  --card-bg: rgb(255 255 255 / 92%);
+  --border-color: rgb(108 99 255 / 15%);
+
+  padding: 40px 20px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 28px;
+}
+
+/* =========================
+   FLEX HELPERS
+========================= */
+
+.fh {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.fv {
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.resume {
+  background: var(--card-bg);
+  border-radius: 28px;
+  padding: 50px;
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 10px 40px rgb(0 0 0 / 8%),
+    0 2px 10px rgb(108 99 255 / 8%);
+
+  animation: fade-in 0.9s ease;
+}
+
+/* =========================
+   UNIVERSAL CARD STYLE
+========================= */
+
+.resume-block,
+.funny-status,
+.funny-easter-egg,
+.experience-card {
+  background: rgb(255 255 255 / 100%);
+  border-radius: 18px;
+
+  padding: 24px;
+  margin-bottom: 22px;
+
+  box-shadow: 0 6px 18px rgb(0 0 0 / 6%);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* hover (must come AFTER base rule) */
+.resume-block:hover,
+.funny-status:hover,
+.funny-easter-egg:hover,
+.experience-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 12px 28px rgb(0 0 0 / 10%);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.contact-info__header {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--primary-text-color);
+  margin-bottom: 10px;
+}
+
+.contact-info__sub-header {
+  text-align: center;
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-bottom: 25px;
+}
+
+/* =========================
+   CONTACT LAYOUT
+========================= */
+
+.contact_info_container {
+  align-items: center;
+  gap: 40px;
+}
+
+.contact-info__block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 180px;
+}
+
+.contact-info__item {
+  color: var(--secondary-text-color);
+  font-size: 15px;
+}
+
+/* =========================
+   AVATAR FIX (NO OVERLAP)
+========================= */
+
+.contact-info__avatar {
+  width: 170px;
+  height: 170px;
+  border-radius: 22px;
+  object-fit: cover;
+
+  border: 5px solid rgb(255 255 255 / 100%);
+
+  box-shadow:
+    0 10px 25px rgb(108 99 255 / 20%),
+    0 0 0 6px rgb(108 99 255 / 8%);
+
+  transition: transform 0.3s ease;
+}
+
+.contact-info__avatar:hover {
+  transform: rotate(2deg) scale(1.03);
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro_text {
+  color: var(--secondary-text-color);
+  font-size: 16px;
+  text-align: justify;
+}
+
+/* =========================
+   HEADERS
+========================= */
+
+.skills__header,
+.experiences__header {
+  font-size: 24px;
+  color: var(--primary-text-color);
+  margin-bottom: 15px;
+}
+
+/* =========================
+   EXPERIENCE LIST
+========================= */
+
+.experiences__company-project-responsibilities {
+  padding-left: 20px;
+  color: var(--secondary-text-color);
+}
+
+.experiences__company-project-responsibilities li {
+  margin-bottom: 8px;
+}
+
+/* =========================
+   FUNNY BLOCKS (IMPROVED)
+========================= */
+
+.funny-status {
+  border-left: 5px solid var(--primary-color);
+  position: relative;
+}
+
+.funny-easter-egg {
+  border-left: 5px solid var(--secondary-color);
+  position: relative;
+}
+
+/* decorative text */
+.funny-easter-egg::after {
+  content: "🤯 wha-a-a-t ?!";
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  font-size: 12px;
+  opacity: 0.25;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+  .fh {
+    flex-direction: column;
+  }
+
+  .resume {
+    padding: 35px;
+  }
+
+  .contact-info__header {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  .resume {
+    padding: 25px;
+  }
+
+  .contact-info__header {
+    font-size: 30px;
+  }
+
+  .contact-info__sub-header {
+    font-size: 17px;
+  }
+}
