@@ -25,7 +25,6 @@ body {
 
   --primary-color: #6c63ff;
   --secondary-color: #00b4d8;
-  --accent-color: #ff8c42;
 
   --card-bg: rgb(255 255 255 / 92%);
   --border-color: rgb(108 99 255 / 15%);
@@ -41,6 +40,9 @@ body {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
+
+  /* BIG IMPROVEMENT: spacing between sections */
+  margin-bottom: 28px;
 }
 
 /* =========================
@@ -59,7 +61,7 @@ body {
 }
 
 /* =========================
-   MAIN RESUME CARD
+   MAIN CARD
 ========================= */
 
 .resume {
@@ -77,16 +79,41 @@ body {
 }
 
 /* =========================
-   BLOCKS
+   UNIVERSAL CARD SYSTEM (IMPORTANT FIX)
 ========================= */
 
-.resume__block {
-  padding: 35px 0;
-  border-bottom: 1px solid var(--border-color);
+/* THIS FIXES EVERYTHING: consistency + spacing + hover */
+.resume__block,
+.funny-status,
+.funny-easter-egg,
+.experience-card,
+.intro-box,
+.sidebar-box,
+.experiences__company {
+  background: white;
+  border-radius: 18px;
+
+  padding: 24px;
+
+  margin-bottom: 22px;
+
+  box-shadow: 0 6px 18px rgb(0 0 0 / 6%);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.resume__block:last-child {
-  border-bottom: none;
+/* hover effect for ALL sections */
+.resume__block:hover,
+.funny-status:hover,
+.funny-easter-egg:hover,
+.experience-card:hover,
+.intro-box:hover,
+.sidebar-box:hover,
+.experiences__company:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 12px 28px rgb(0 0 0 / 10%);
 }
 
 /* =========================
@@ -104,47 +131,44 @@ body {
 .contact-info__sub-header {
   text-align: center;
   font-size: 20px;
-  font-weight: 500;
   color: var(--primary-color);
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 }
 
 /* =========================
-   CONTACT
+   IMPORTANT FIX: CONTACT LAYOUT SPACING
 ========================= */
 
 .contact_info_container {
   align-items: center;
+  gap: 40px;
 }
 
+/* prevents avatar overlap issue */
 .contact-info__block {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-}
-
-.contact-info__item {
-  font-size: 15px;
-  color: var(--secondary-text-color);
-
-  transition:
-    transform 0.3s ease,
-    color 0.3s ease;
-}
-
-.contact-info__item:hover {
-  color: var(--primary-color);
-  transform: translateX(5px);
+  gap: 14px;
+  min-width: 180px;
 }
 
 /* =========================
-   AVATAR
+   CONTACT ITEMS
+========================= */
+
+.contact-info__item {
+  color: var(--secondary-text-color);
+  font-size: 15px;
+}
+
+/* =========================
+   AVATAR (FIXED ALIGNMENT)
 ========================= */
 
 .contact-info__avatar {
   width: 170px;
   height: 170px;
-  border-radius: 24px;
+  border-radius: 22px;
   object-fit: cover;
 
   border: 5px solid white;
@@ -153,17 +177,11 @@ body {
     0 10px 25px rgb(108 99 255 / 20%),
     0 0 0 6px rgb(108 99 255 / 8%);
 
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
+  transition: transform 0.3s ease;
 }
 
 .contact-info__avatar:hover {
-  transform: rotate(1deg) scale(1.02);
-
-  box-shadow:
-    0 14px 30px rgb(108 99 255 / 28%),
-    0 0 0 8px rgb(108 99 255 / 10%);
+  transform: rotate(2deg) scale(1.03);
 }
 
 /* =========================
@@ -177,46 +195,18 @@ body {
 }
 
 /* =========================
-   HEADERS
+   SECTION TITLES
 ========================= */
 
 .skills__header,
 .experiences__header {
-  font-size: 26px;
+  font-size: 24px;
   color: var(--primary-text-color);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 /* =========================
-   SKILLS TEXT
-========================= */
-
-.skills__text {
-  color: var(--secondary-text-color);
-  font-size: 15px;
-}
-
-/* =========================
-   EXPERIENCE CARD
-========================= */
-
-.experiences__company {
-  background: white;
-  padding: 28px;
-  border-radius: 20px;
-  margin-bottom: 30px;
-
-  box-shadow: 0 5px 20px rgb(0 0 0 / 5%);
-
-  transition: transform 0.3s ease;
-}
-
-.experiences__company:hover {
-  transform: translateY(-5px);
-}
-
-/* =========================
-   LISTS
+   EXPERIENCE LIST
 ========================= */
 
 .experiences__company-project-responsibilities {
@@ -229,43 +219,25 @@ body {
 }
 
 /* =========================
-   FUNNY ELEMENTS (YOUR TASK REQUIREMENT)
+   FUNNY BLOCK (IMPROVED VISUAL IMPACT)
 ========================= */
 
-.funny-status,
+.funny-status {
+  border-left: 5px solid var(--primary-color);
+}
+
 .funny-easter-egg {
-  background: white;
-  padding: 18px;
-  margin-top: 20px;
-
-  border-radius: 14px;
-
-  box-shadow: 0 5px 15px rgb(0 0 0 / 10%);
-
-  font-size: 14px;
-
-  transition: transform 0.3s ease;
+  border-left: 5px solid var(--secondary-color);
 }
 
-.funny-status:hover,
-.funny-easter-egg:hover {
-  transform: translateY(-4px);
-}
-
-/* little “wha-a-a-t ?!” effect */
-.funny-easter-egg {
-  position: relative;
-  overflow: hidden;
-}
-
+/* “wha-a-a-t” effect */
 .funny-easter-egg::after {
-  content: "wha-a-a-t ?! 🤯";
+  content: "🤯 wha-a-a-t ?!";
   position: absolute;
-  right: -10px;
-  top: -10px;
+  right: 14px;
+  top: 10px;
   font-size: 12px;
-  opacity: 0.2;
-  transform: rotate(12deg);
+  opacity: 0.25;
 }
 .funny-status,
 .funny-easter-egg {
@@ -291,7 +263,6 @@ body {
     opacity: 0;
     transform: translateY(18px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
