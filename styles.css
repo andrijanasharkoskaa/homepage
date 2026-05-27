@@ -233,7 +233,21 @@ body {
   border-radius: 20px;
   box-shadow: 0 5px 20px rgb(0 0 0 / 5%);
 }
+.funny-status,
+.funny-easter-egg {
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 10%);
+  font-size: 14px;
+  transition: 0.3s ease;
+}
 
+.funny-status:hover,
+.funny-easter-egg:hover {
+  transform: translateY(-3px);
+}
 /* =========================
    ANIMATION
 ========================= */
